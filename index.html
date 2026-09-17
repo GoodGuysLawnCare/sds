@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Safety Data Sheet directory for Good Guys Lawn &amp; Landscape.">
+<style>
+*{margin:0}
+html{color-scheme:light dark}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Good Guys SDS Shelf</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F1F4F0; --surface:#FFFFFF; --surface-2:#E9EEE8;
+  --ink:#151E18; --ink-2:#5B6861; --ink-3:#8A968F;
+  --rule:#D6DED7; --rule-soft:#E4EAE4;
+  --brand:#1F5A2E; --brand-ink:#FFFFFF;
+  --danger:#A81E20; --danger-bg:#F7E6E6;
+  --warn:#9C5A11; --warn-bg:#F8EDDF;
+  --calm:#5B6861; --calm-bg:#E9EEE8;
+  --flag:#A81E20;
+  --shadow:0 1px 2px rgba(21,30,24,.06);
+  --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#11150F; --surface:#1A1F1B; --surface-2:#222822;
+    --ink:#E7EDE7; --ink-2:#9BA79E; --ink-3:#74807A;
+    --rule:#2C332D; --rule-soft:#242A25;
+    --brand:#6FB37E; --brand-ink:#0E140F;
+    --danger:#F08A8A; --danger-bg:#2E1A1A;
+    --warn:#E6AC63; --warn-bg:#2C2015;
+    --calm:#9BA79E; --calm-bg:#222822;
+    --flag:#F08A8A;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#11150F; --surface:#1A1F1B; --surface-2:#222822;
+  --ink:#E7EDE7; --ink-2:#9BA79E; --ink-3:#74807A;
+  --rule:#2C332D; --rule-soft:#242A25;
+  --brand:#6FB37E; --brand-ink:#0E140F;
+  --danger:#F08A8A; --danger-bg:#2E1A1A;
+  --warn:#E6AC63; --warn-bg:#2C2015;
+  --calm:#9BA79E; --calm-bg:#222822;
+  --flag:#F08A8A;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.45;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+
+.masthead{background:var(--brand);color:var(--brand-ink);margin-inline:-16px;padding:22px 16px 18px}
+.masthead h1{font-family:var(--display);font-weight:700;font-size:clamp(22px,5.5vw,30px);letter-spacing:-.015em;margin:0;text-wrap:balance}
+.masthead .org{font-size:13px;opacity:.85;margin-top:2px}
+.masthead .stat{font-size:12px;opacity:.78;margin-top:10px;font-variant-numeric:tabular-nums}
+
+.sos{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sos a{flex:1 1 150px;display:block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);
+  border-radius:3px;padding:8px 10px;color:inherit;text-decoration:none}
+.sos .lbl{display:block;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;opacity:.8}
+.sos .num{display:block;font-family:var(--display);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums;margin-top:1px}
+.sos a:hover,.sos a:focus-visible{background:rgba(255,255,255,.22)}
+
+.attn{background:var(--danger-bg);border-left:3px solid var(--flag);border-radius:0 3px 3px 0;padding:12px 14px;margin-top:20px}
+.attn h2{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--flag);margin:0 0 6px}
+.attn p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.attn b{color:var(--ink);font-weight:600}
+
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);
+  padding-block:12px 10px;margin-top:18px;border-bottom:1px solid var(--rule)}
+#q{width:100%;font-family:var(--body);font-size:16px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;padding:11px 12px}
+#q::placeholder{color:var(--ink-3)}
+#q:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chip{font-family:var(--body);font-size:12px;font-weight:500;color:var(--ink-2);background:var(--surface);
+  border:1px solid var(--rule);border-radius:20px;padding:5px 11px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.count{font-size:11.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase;margin:16px 0 6px}
+.list{display:flex;flex-direction:column;gap:1px;background:var(--rule-soft);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.row{display:grid;grid-template-columns:4px 1fr;background:var(--surface);gap:0}
+.stripe{background:var(--calm)}
+.row[data-sig="Danger"] .stripe{background:var(--danger)}
+.row[data-sig="Warning"] .stripe{background:var(--warn)}
+.row[data-miss="1"] .stripe{background:repeating-linear-gradient(135deg,var(--danger) 0 4px,transparent 4px 8px)}
+.body{padding:13px 14px}
+.name{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.005em;margin:0;text-wrap:balance}
+.maker{font-size:12.5px;color:var(--ink-2);margin:1px 0 0}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:9px;font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sig{font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;background:var(--calm-bg);color:var(--calm)}
+.row[data-sig="Danger"] .sig{background:var(--danger-bg);color:var(--danger)}
+.row[data-sig="Warning"] .sig{background:var(--warn-bg);color:var(--warn)}
+.pg{color:var(--ink-3)}
+.status{font-size:11.5px;font-weight:600}
+.status.ok{color:var(--ink-3);font-weight:400}
+.status.old,.status.gone,.status.chk{color:var(--flag)}
+.links{margin-top:9px;display:flex;flex-wrap:wrap;gap:8px}
+.links a{font-size:12.5px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
+.links a:hover,.links a:focus-visible{color:var(--ink)}
+.src{font-size:11px;color:var(--ink-3);align-self:center}
+.note{margin:8px 0 0;font-size:12px;color:var(--flag);line-height:1.4}
+.empty{padding:28px 14px;text-align:center;color:var(--ink-3);font-size:14px;background:var(--surface)}
+
+footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-3);line-height:1.55}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1>Safety Data Sheets</h1>
+    <div class="org">Good Guys Lawn &amp; Landscape &middot; chemical shelf</div>
+    <div class="stat" id="stat">16 sheets in the binder &middot; 143 pages &middot; checked 17 Sep 2026</div>
+    <nav class="sos" aria-label="Emergency numbers">
+      <a href="tel:18004249300"><span class="lbl">CHEMTREC &mdash; spill, fire, exposure</span><span class="num">800-424-9300</span></a>
+      <a href="tel:18002221222"><span class="lbl">Poison control</span><span class="num">800-222-1222</span></a>
+      <a href="tel:911"><span class="lbl">Medical or fire</span><span class="num">911</span></a>
+    </nav>
+  </header>
+
+  <section class="attn">
+    <h2>Needs attention &mdash; 5 items</h2>
+    <p><b>CrossCheck EZ Granular (Verge)</b> is stocked but has no sheet in the binder. <b>CarbonPRO-G</b>, <b>Liquid Fence</b> and <b>Treflan 5G</b> are superseded. <b>SPLASH -75&deg;F</b> could not be verified.</p>
+  </section>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search product, manufacturer, active ingredient&hellip;" autocomplete="off" aria-label="Search sheets">
+    <div class="chips" role="group" aria-label="Filter">
+      <button class="chip" id="f-all"  data-f="all"  aria-pressed="true">All</button>
+      <button class="chip" id="f-att"  data-f="att"  aria-pressed="false">Needs attention</button>
+      <button class="chip" id="f-dgr"  data-f="Danger"  aria-pressed="false">Danger</button>
+      <button class="chip" id="f-wrn"  data-f="Warning" aria-pressed="false">Warning</button>
+    </div>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="list" id="list"></div>
+
+  <footer>
+    <p><b>Page numbers</b> refer to <i>Good Guys SDS Book.pdf</i> in the shared SDS MSDS folder &mdash; the printed binder in the shop and trucks.</p>
+    <p style="margin-top:6px"><b>Where links go.</b> <i>Portal</i> is labelsds.com, the SDS service SiteOne/LESCO publish through. <i>Maker</i> is the manufacturer's own site. <i>Mirror</i> is a third-party copy &mdash; usable to read, but pull from the maker before filing it.</p>
+    <p style="margin-top:6px">Lebanon Seaboard sheets are generated on download and stamp the moment you pull them as the revision date, so PennMulch and Treflan can&rsquo;t be date-compared &mdash; judge them by how old the printout is.</p>
+  </footer>
+</div>
+
+<script>
+const SHEETS = [
+ {n:"BlueDEF Diesel Exhaust Fluid",m:"Old World Industries",sig:"None",rev:"10/01/2019",pg:2,st:"ok",stt:"Current",
+  url:"https://www1.mscdirect.com/MSDS/MSDS00068/30606818-20201225.PDF",src:"Mirror",k:"urea def scr nox diesel exhaust fluid"},
+ {n:"LESCO CarbonPRO-G / G Elite",m:"LESCO / Mirimichi Green",sig:"Not classified",rev:"12/21/2018",pg:8,st:"old",stt:"Superseded &mdash; 24 May 2019",
+  url:"https://mirimichigreen.com/wp-content/uploads/2019/05/1630-2SDS.pdf",src:"Maker",k:"biochar compost soil amendment carbonpro",
+  note:"Replace with the 24 May 2019 revision. Also confirm &ldquo;G Elite&rdquo; is a real SKU &mdash; no separate sheet exists for it."},
+ {n:"LESCO CrossCheck 0.069% Insecticide + Fertilizer",m:"LESCO",sig:"Warning",rev:"11/06/2020",pg:16,st:"chk",stt:"Current &mdash; filename misleading",
+  url:"https://www.davey.com/media/kqqpcjn1/0-0-7-w-069-crosscheck_sds.pdf",src:"Mirror",k:"bifenthrin granular fertilizer 70506-123-10404",
+  note:"Stored as &ldquo;LESCO Crosscheck EZ Granular.pdf&rdquo; but it is EPA 70506-123-10404, a different product. Rename the file."},
+ {n:"LESCO CrossCheck Plus Multi-Insecticide",m:"LESCO",sig:"Danger",rev:"02/13/2026",pg:22,st:"ok",stt:"Current",
+  url:"https://labelsds.com/document.php?file=Lesco+Crosscheck+Plus+SDS+2-13-26.pdf&product=2026",src:"Portal",k:"bifenthrin pyrethroid 279-3206-10404"},
+ {n:"LESCO Dimension 0.27G Turf &amp; Ornamental",m:"LESCO",sig:"Warning",rev:"11/06/2015",pg:30,st:"ok",stt:"Current",
+  url:"https://labelsds.com/images/user_uploads/Lesco%20Dimension%20.27G%20SDS%2011-6-15.pdf",src:"Portal",k:"dithiopyr preemergent crabgrass 62719-429-10404"},
+ {n:"LESCO Momentum FX2 Herbicide",m:"LESCO",sig:"Danger",rev:"02/12/2015",pg:42,st:"ok",stt:"Current",
+  url:"https://labelsds.com/view-product?product=1310&hide_nav=1",src:"Portal",k:"broadleaf herbicide 228-447-10404 fluroxypyr"},
+ {n:"LESCO Prosecutor Pro Herbicide",m:"LESCO",sig:"Warning",rev:"08/06/2020",pg:49,st:"ok",stt:"Current",
+  url:"https://labelsds.com/document.php?file=Prosecutor+Pro+SDS+8-6-20.pdf&product=1297",src:"Portal",k:"glyphosate nonselective 524-536-10404"},
+ {n:"LESCO Quin-Way (Quintessential)",m:"PrimeSource / Albaugh",sig:"Warning",rev:"05/08/2024",pg:60,st:"chk",stt:"Check the jug",
+  url:"https://www.albaugh.com/docs/unitedstateslibraries/productfiles/quintessential-safety-data-sheet-.pdf",src:"Maker",k:"quinclorac quintessential 89442-57",
+  note:"The binder holds the <i>Quintessential</i> sheet (EPA 89442-57). <i>LESCO Quin-Way 1.5L</i> is a separate registration (EPA 42750-224-10404). Match the EPA number on the jug."},
+ {n:"LESCO Recede Liquid Antifoam",m:"LESCO",sig:"Not classified",rev:"08/07/2014",pg:69,st:"ok",stt:"Current",
+  url:"https://labelsds.com/view-product?product=1294&hide_nav=1",src:"Portal",k:"antifoam defoamer tank mix 80314"},
+ {n:"LESCO Three-Way Ester II Herbicide",m:"LESCO",sig:"Danger",rev:"01/28/2015",pg:74,st:"ok",stt:"Current",
+  url:"https://labelsds.com/document.php?file=Lesco+3+Way+Ester+SDS+1-28-15.pdf&product=1296",src:"Portal",k:"2,4-d mecoprop dicamba broadleaf 228-317-10404"},
+ {n:"Liquid Fence Deer &amp; Rabbit Repellent Concentrate2",m:"Liquid Fence Co. / Spectrum",sig:"See Section 2",rev:"03/18/2015",pg:82,st:"old",stt:"Superseded &mdash; Nov 2021",
+  url:"https://www.liquidfence.com/-/media/Project/SpectrumCommerce/LiquidFence/Files/SDS/LiquidFenceDeerRabbitRepellentConcentrate27204125B40SDSNov21.pdf",src:"Maker",
+  k:"putrescent egg garlic deer rabbit repellent",note:"Eleven years old. Two revisions have shipped since &mdash; Jan 2019 and Nov 2021."},
+ {n:"PennMulch Seed Starter",m:"Lebanon Seaboard",sig:"None",rev:"07/16/2026",pg:88,st:"ok",stt:"Current",
+  url:"http://www.businesscenter.lebsea.com/Pages/MSDSGenerator.aspx?sku=2396109",src:"Maker",k:"seeding mulch starter fertilizer paper pellet"},
+ {n:"SPLASH -75&deg;F RV &amp; Marine Antifreeze",m:"FMP",sig:"Warning",rev:"09/08/2022",pg:94,st:"chk",stt:"Unverified",
+  url:"https://www.splashwash.com/sds-sheets",src:"Maker",k:"propylene glycol antifreeze winterize 619533-35",
+  note:"splashwash.com blocks automated checks &mdash; verify by hand. Part 619533-35 and 619535-35 are different formulations with different sheets."},
+ {n:"Syngenta Fusilade II Turf &amp; Ornamental",m:"Syngenta Crop Protection",sig:"Danger",rev:"05/15/2023",pg:103,st:"ok",stt:"Current",
+  url:"https://assets.syngenta-us.com/pdf/msds/fusilade%20II%20tno.pdf",src:"Maker",k:"fluazifop grass herbicide selective"},
+ {n:"Treflan 5G Biodac Herbicide",m:"Lebanon Seaboard",sig:"Danger",rev:"11/13/2014",pg:119,st:"old",stt:"Stale reprint",
+  url:"http://www.businesscenter.lebsea.com/Pages/MSDSGenerator.aspx?sku=2440436",src:"Maker",k:"trifluralin preemergent granular 961-405 carcinogen",
+  note:"Twelve-year-old printout and the EPA label was amended 15 Sep 2022. Re-pull from the generator &mdash; it costs nothing."},
+ {n:"Valvoline Advanced Full Synthetic SAE 5W-20",m:"Valvoline",sig:"Not classified",rev:"02/23/2023",pg:130,st:"ok",stt:"Current",
+  url:"https://petroleumservicecompany.com/content/pdfs/Valvoline_Advanced_Full_Syn_5W-20_SDS.pdf",src:"Mirror",k:"motor oil engine lubricant 883691"},
+ {n:"LESCO CrossCheck EZ Granular Insecticide (Verge)",m:"LESCO",sig:"See sheet",rev:"04/10/2015",pg:null,st:"gone",stt:"Missing from binder",miss:1,
+  url:"https://labelsds.com/images/user_uploads/Crosscheck%20EZ%20SDS%204-10-15.pdf",src:"Portal",k:"bifenthrin verge granule 279-3168-10404 siteone 11008349",
+  note:"Stocked at SiteOne (item 11008349) with no sheet on file &mdash; an open OSHA 1910.1200(g) gap. Print the 4-10-15 sheet and add it."}
+];
+
+const listEl = document.getElementById("list");
+const countEl = document.getElementById("count");
+const qEl = document.getElementById("q");
+const chips = Array.from(document.querySelectorAll(".chip"));
+let filter = "all";
+
+function strip(h){ const d = document.createElement("div"); d.innerHTML = h; return d.textContent || ""; }
+
+function render(){
+  const q = qEl.value.trim().toLowerCase();
+  const hits = SHEETS.filter(s => {
+    if (filter === "att" && s.st === "ok") return false;
+    if (filter === "Danger" && s.sig !== "Danger") return false;
+    if (filter === "Warning" && s.sig !== "Warning") return false;
+    if (!q) return true;
+    return (strip(s.n) + " " + s.m + " " + s.k + " " + strip(s.stt)).toLowerCase().includes(q);
+  });
+
+  countEl.textContent = hits.length === SHEETS.length
+    ? SHEETS.length + " products"
+    : hits.length + " of " + SHEETS.length + " products";
+
+  if (!hits.length){
+    listEl.innerHTML = '<p class="empty">Nothing matches that. Try the active ingredient or the EPA number.</p>';
+    return;
+  }
+
+  listEl.innerHTML = hits.map(s => {
+    const pg = s.pg ? '<span class="pg">Binder p.' + s.pg + '</span>' : '<span class="pg">Not in binder</span>';
+    const note = s.note ? '<p class="note">' + s.note + '</p>' : '';
+    return '<article class="row" data-sig="' + s.sig + '"' + (s.miss ? ' data-miss="1"' : '') + '>'
+      + '<div class="stripe" aria-hidden="true"></div>'
+      + '<div class="body">'
+      +   '<h3 class="name">' + s.n + '</h3>'
+      +   '<p class="maker">' + s.m + '</p>'
+      +   '<div class="meta">'
+      +     '<span class="sig">' + s.sig + '</span>'
+      +     '<span>Rev ' + s.rev + '</span>'
+      +     pg
+      +     '<span class="status ' + s.st + '">' + s.stt + '</span>'
+      +   '</div>'
+      +   note
+      +   '<div class="links"><a href="' + s.url + '" target="_blank" rel="noopener">Open current sheet</a>'
+      +   '<span class="src">' + s.src + '</span></div>'
+      + '</div></article>';
+  }).join("");
+}
+
+qEl.addEventListener("input", render);
+chips.forEach(c => c.addEventListener("click", () => {
+  filter = c.dataset.f;
+  chips.forEach(x => x.setAttribute("aria-pressed", String(x === c)));
+  render();
+}));
+render();
+</script>
+
+</body>
+</html>
