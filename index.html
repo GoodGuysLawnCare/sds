@@ -57,11 +57,6 @@ body{background:var(--ground);color:var(--ink);font-family:var(--body);line-heig
 .sos .lbl{display:block;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;opacity:.8}
 .sos .num{display:block;font-family:var(--display);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums;margin-top:1px}
 .sos a:hover,.sos a:focus-visible{background:rgba(255,255,255,.22)}
-.attn{background:var(--danger-bg);border-left:3px solid var(--flag);border-radius:0 3px 3px 0;padding:12px 14px;margin-top:20px}
-.attn h2{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--flag);margin-bottom:6px}
-.attn p{font-size:13.5px;color:var(--ink-2)}
-.attn p + p{margin-top:6px}
-.attn b{color:var(--ink);font-weight:600}
 .controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);
   padding-block:12px 10px;margin-top:18px;border-bottom:1px solid var(--rule)}
 #q{width:100%;font-family:var(--body);font-size:16px;color:var(--ink);background:var(--surface);
@@ -79,7 +74,6 @@ body{background:var(--ground);color:var(--ink);font-family:var(--body);line-heig
 .stripe{background:var(--calm)}
 .row[data-sig="Danger"] .stripe{background:var(--danger)}
 .row[data-sig="Warning"] .stripe{background:var(--warn)}
-.row[data-miss="1"] .stripe{background:repeating-linear-gradient(135deg,var(--danger) 0 4px,transparent 4px 8px)}
 .body{padding:13px 14px}
 .name{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.005em;text-wrap:balance}
 .maker{font-size:12.5px;color:var(--ink-2);margin-top:1px}
@@ -89,14 +83,10 @@ body{background:var(--ground);color:var(--ink);font-family:var(--body);line-heig
 .row[data-sig="Danger"] .sig{background:var(--danger-bg);color:var(--danger)}
 .row[data-sig="Warning"] .sig{background:var(--warn-bg);color:var(--warn)}
 .pg{color:var(--ink-3)}
-.status{font-size:11.5px;font-weight:600}
-.status.ok{color:var(--ink-3);font-weight:400}
-.status.old,.status.gone,.status.chk{color:var(--flag)}
 .links{margin-top:9px;display:flex;flex-wrap:wrap;gap:8px}
 .links a{font-size:12.5px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
 .links a:hover,.links a:focus-visible{color:var(--ink)}
 .src{font-size:11px;color:var(--ink-3);align-self:center}
-.note{margin-top:8px;font-size:12px;color:var(--flag);line-height:1.4}
 .empty{padding:28px 14px;text-align:center;color:var(--ink-3);font-size:14px;background:var(--surface)}
 footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-3);line-height:1.55}
 footer p + p{margin-top:6px}
@@ -110,7 +100,7 @@ footer b{color:var(--ink-2);font-weight:600}
   <header class="masthead">
     <h1>Safety Data Sheets</h1>
     <div class="org">Good Guys Lawn &amp; Landscape &middot; shop and shelf</div>
-    <div class="stat">42 sheets in the binder &middot; 393 pages &middot; all checked against the manufacturer 19 Sep 2026</div>
+    <div class="stat">42 sheets in the binder &middot; 393 pages</div>
     <nav class="sos" aria-label="Emergency numbers">
       <a href="tel:18004249300"><span class="lbl">CHEMTREC &mdash; spill, fire, exposure</span><span class="num">800-424-9300</span></a>
       <a href="tel:18002221222"><span class="lbl">Poison control</span><span class="num">800-222-1222</span></a>
@@ -118,17 +108,11 @@ footer b{color:var(--ink-2);font-weight:600}
     </nav>
   </header>
 
-  <section class="attn">
-    <h2>Needs attention &mdash; 19 of 43</h2>
-    <p><b>One product has no sheet at all:</b> CrossCheck EZ Granular. <b>Eleven sheets are superseded</b> &mdash; start with FVP Foaming Engine Degreaser, which was reformulated, and JB Chain Lube, which is still in pre-GHS format.</p>
-    <p><b>Seven need a person</b> rather than a search: a portal that blocks automated checks, a SKU off the can, or an EPA number off the bag. Each one says which below.</p>
-  </section>
 
   <div class="controls">
     <input id="q" type="search" placeholder="Search product, brand, active ingredient&hellip;" autocomplete="off" aria-label="Search sheets">
     <div class="chips" role="group" aria-label="Filter">
       <button class="chip" id="f-all"  data-f="all"    aria-pressed="true">All</button>
-      <button class="chip" id="f-att"  data-f="att"    aria-pressed="false">Needs attention</button>
       <button class="chip" id="f-shop" data-f="shop"   aria-pressed="false">Shop &amp; vehicle</button>
       <button class="chip" id="f-turf" data-f="turf"   aria-pressed="false">Turf &amp; landscape</button>
       <button class="chip" id="f-dgr"  data-f="Danger" aria-pressed="false">Danger</button>
@@ -140,8 +124,7 @@ footer b{color:var(--ink-2);font-weight:600}
 
   <footer>
     <p><b>Page numbers</b> refer to <i>Good Guys SDS Book.pdf</i> in the shared SDS MSDS folder &mdash; the printed binder in the shop and trucks.</p>
-    <p><b>Where links go.</b> <i>Maker</i> is the manufacturer's own site. <i>Portal</i> is labelsds.com, the SDS service SiteOne/LESCO publish through. <i>Mirror</i> is a third-party copy &mdash; fine to read, but pull from the maker before filing it.</p>
-    <p>Lebanon Seaboard sheets are generated at the moment you download them and stamp that moment as the revision date, so PennMulch and Treflan can&rsquo;t be date-compared &mdash; judge them by how old the printout is.</p>
+    <p><b>Where links go.</b> <i>Maker</i> is the manufacturer's own site. <i>Portal</i> is labelsds.com, the SDS service SiteOne/LESCO publish through. <i>Mirror</i> is a third-party copy.</p>
   </footer>
 </div>
 <script>
@@ -153,12 +136,9 @@ const SHEETS = [
   "sig": "Not classified",
   "rev": "09/04/2018",
   "pg": 4,
-  "st": "old",
-  "stt": "Superseded &mdash; 20 Mar 2024",
-  "url": "https://lubriplate-sds.thewercs.com/DirectDocumentDownloader/Document?prd=05040~~PDF~~MTR~~AGHS~~EN",
-  "src": "Maker",
   "k": "hydraulic fluid iso 32 aw lubriplate fiske 05040",
-  "note": "Two revisions behind. It is a Lubriplate / Fiske Brothers product (SDS #05040) &mdash; page 1 never says so, which is why it was filed unbranded. Distributor mirrors still serve the old rev 3."
+  "url": "https://lubriplate-sds.thewercs.com/DirectDocumentDownloader/Document?prd=05040~~PDF~~MTR~~AGHS~~EN",
+  "src": "Maker"
  },
  {
   "n": "Blaster Hydraulic Jack Oil",
@@ -167,11 +147,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "07/08/2021",
   "pg": 14,
-  "st": "ok",
-  "stt": "Current",
+  "k": "jack oil mineral hydraulic",
   "url": "https://blasterproducts.com/wp-content/uploads/2021/09/HydraulicJackOil_SDS_B_E_210708.pdf",
-  "src": "Maker",
-  "k": "jack oil mineral hydraulic"
+  "src": "Maker"
  },
  {
   "n": "B'laster PB Penetrating Catalyst",
@@ -180,12 +158,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "03/13/2025",
   "pg": 19,
-  "st": "chk",
-  "stt": "Date matches no known revision",
-  "url": "https://blasterproducts.com/wp-content/uploads/2023/02/PB-Penetrating-Catalyst-aerosol-EN-OSHA-GHS-SDS-2022-06-14_1.pdf",
-  "src": "Maker",
   "k": "penetrant rust loosener pb blaster",
-  "note": "B'laster publishes an aerosol sheet revised 9 Jun 2022 and a bulk sheet dated 13 Jan 2023 &mdash; nothing from March 2025. The copy on file is probably a distributor reprint. Swap in B'laster's own sheet so the date traces to the manufacturer."
+  "url": "https://blasterproducts.com/wp-content/uploads/2023/02/PB-Penetrating-Catalyst-aerosol-EN-OSHA-GHS-SDS-2022-06-14_1.pdf",
+  "src": "Maker"
  },
  {
   "n": "BlueDEF Diesel Exhaust Fluid",
@@ -194,11 +169,9 @@ const SHEETS = [
   "sig": "None",
   "rev": "10/01/2019",
   "pg": 26,
-  "st": "ok",
-  "stt": "Current",
+  "k": "urea def scr nox",
   "url": "https://www1.mscdirect.com/MSDS/MSDS00068/30606818-20201225.PDF",
-  "src": "Mirror",
-  "k": "urea def scr nox"
+  "src": "Mirror"
  },
  {
   "n": "Castrol EDGE 5W-40",
@@ -207,12 +180,9 @@ const SHEETS = [
   "sig": "Not classified",
   "rev": "10/01/2019",
   "pg": 32,
-  "st": "chk",
-  "stt": "Check the jug",
-  "url": "https://msdspds.castrol.com/msdspds/msdspds.nsf/CastrolResults",
-  "src": "Maker",
   "k": "motor oil synthetic engine edge 468162",
-  "note": "Castrol's portal blocks automated checks. Confirm the SDS number on the container is still 468162 &mdash; most search results are non-US sheets under 463878, and the US retail product is now badged EDGE Euro Car 5W-40 A3/B4."
+  "url": "https://msdspds.castrol.com/msdspds/msdspds.nsf/CastrolResults",
+  "src": "Maker"
  },
  {
   "n": "Clean-R-Carb Carburetor Cleaner, 12 oz",
@@ -221,12 +191,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "04/20/2020",
   "pg": 41,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://www.crcindustries.com/media/msdsen/msds_en-1003690.pdf",
-  "src": "Maker",
   "k": "carb cleaner aerosol solvent 05079",
-  "note": "The 16 oz 50-state formula and the 20 oz can are separate sheets. Don't file one for the other."
+  "url": "https://www.crcindustries.com/media/msdsen/msds_en-1003690.pdf",
+  "src": "Maker"
  },
  {
   "n": "CRC Dielectric Grease, 3.3 oz",
@@ -235,12 +202,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "04/14/2025",
   "pg": 52,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://www.crcindustries.com/media/msdsen/default/msds_en-1003199.pdf",
-  "src": "Maker",
   "k": "electrical connector grease silicone 02085",
-  "note": "Technician Grade Dielectric Grease (05113) is a different product with its own sheet."
+  "url": "https://www.crcindustries.com/media/msdsen/default/msds_en-1003199.pdf",
+  "src": "Maker"
  },
  {
   "n": "Exmark Premium Hydro Oil",
@@ -249,12 +213,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "08/18/2025",
   "pg": 61,
-  "st": "ok",
-  "stt": "Current &mdash; but a 2016 document",
-  "url": "https://asset.exmark.com/documents/api/DocumentAPI/GetDocumentByHandle?fHandle=8U4",
-  "src": "Maker",
   "k": "mower hydraulic hydro drive oil 109-9828",
-  "note": "Exmark has never revised this sheet; the document itself was prepared 11 Jan 2016. Nothing to replace &mdash; no need to re-check it each year."
+  "url": "https://asset.exmark.com/documents/api/DocumentAPI/GetDocumentByHandle?fHandle=8U4",
+  "src": "Maker"
  },
  {
   "n": "Fix-a-Flat",
@@ -263,11 +224,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "03/10/2025",
   "pg": 67,
-  "st": "ok",
-  "stt": "Current",
+  "k": "tire sealant inflator aerosol",
   "url": "https://cdn.amplifi.pattern.com/1d7044a3-f4f3-4e04-a921-59fa00e91714",
-  "src": "Maker",
-  "k": "tire sealant inflator aerosol"
+  "src": "Maker"
  },
  {
   "n": "FVP Foaming Engine Degreaser",
@@ -276,12 +235,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "08/26/2014",
   "pg": 81,
-  "st": "old",
-  "stt": "Superseded &mdash; 21 Apr 2023",
-  "url": "https://sds.fmpco.com/images/fmp_msds/FVPED-14.5_rev_5.1.23.pdf",
-  "src": "Maker",
   "k": "degreaser foaming engine aerosol",
-  "note": "Replace this one first. The formula changed for production after 1 May 2023, so the 2014 hazard data may not describe what is actually in the can."
+  "url": "https://sds.fmpco.com/images/fmp_msds/FVPED-14.5_rev_5.1.23.pdf",
+  "src": "Maker"
  },
  {
   "n": "Goof Off Pro Strength Remover",
@@ -290,11 +246,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "06/28/2022",
   "pg": 90,
-  "st": "ok",
-  "stt": "Current",
+  "k": "adhesive remover solvent aerosol",
   "url": "https://production-s3.wmbarrhub.com/assets/sds/A2420_Goof_Off_Pro_Strength_Remover_Aerosol_EN.pdf",
-  "src": "Maker",
-  "k": "adhesive remover solvent aerosol"
+  "src": "Maker"
  },
  {
   "n": "Gumout Jet Spray Carb &amp; Choke Cleaner",
@@ -303,12 +257,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "10/15/2024",
   "pg": 100,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://gumout.com/wp-content/uploads/2019/02/800002230-800002231-800000241-Gumout-Jet-Spray-Carb-and-Choke-Cleaner-10152024.pdf",
-  "src": "Maker",
   "k": "carb choke cleaner aerosol 600951",
-  "note": "Brand changed hands &mdash; Section 1 now names ITW Global Brands, not Energizer."
+  "url": "https://gumout.com/wp-content/uploads/2019/02/800002230-800002231-800000241-Gumout-Jet-Spray-Carb-and-Choke-Cleaner-10152024.pdf",
+  "src": "Maker"
  },
  {
   "n": "Invisible Glass",
@@ -317,12 +268,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "07/10/2019",
   "pg": 112,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://cdn.shopify.com/s/files/1/0776/6458/3981/files/SDS_Invisible_Glass_91160.pdf",
-  "src": "Maker",
   "k": "glass cleaner windshield 91160",
-  "note": "Stoner moved its SDS library off invisibleglass.com, so older bookmarks break. 91164 is a different size with its own sheet."
+  "url": "https://cdn.shopify.com/s/files/1/0776/6458/3981/files/SDS_Invisible_Glass_91160.pdf",
+  "src": "Maker"
  },
  {
   "n": "Jasco Acetone",
@@ -331,12 +279,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "04/08/2021",
   "pg": 115,
-  "st": "chk",
-  "stt": "Product discontinued",
-  "url": "https://production-s3.wmbarrhub.com/assets/sds/archived/QJAC104-LL34_J_Jasco_Acetone_EN.pdf",
-  "src": "Maker",
   "k": "acetone solvent thinner flammable",
-  "note": "W.M. Barr has discontinued Jasco Acetone and moved the sheet to its archive. Your copy is newer than every public version, so it is probably the last revision. When the remaining stock runs out, the replacement is Klean-Strip Acetone &mdash; same formula code LL34."
+  "url": "https://production-s3.wmbarrhub.com/assets/sds/archived/QJAC104-LL34_J_Jasco_Acetone_EN.pdf",
+  "src": "Maker"
  },
  {
   "n": "Jasco Odorless Mineral Spirits",
@@ -345,12 +290,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "02/16/2021",
   "pg": 131,
-  "st": "chk",
-  "stt": "Product discontinued",
-  "url": "https://production-s3.wmbarrhub.com/assets/sds/archived/QJSP244-GL251J_Jasco_Odorless_Mineral_Spirits_EN.pdf",
-  "src": "Maker",
   "k": "mineral spirits solvent paint thinner",
-  "note": "Also discontinued and archived. Your copy is newer than any public version. The CARB-compliant version and Jasco Green Odorless Mineral Spirits are separate products &mdash; don't cross-file them."
+  "url": "https://production-s3.wmbarrhub.com/assets/sds/archived/QJSP244-GL251J_Jasco_Odorless_Mineral_Spirits_EN.pdf",
+  "src": "Maker"
  },
  {
   "n": "JB Heavy Duty Chain Lube",
@@ -359,12 +301,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "01/19/2009",
   "pg": 138,
-  "st": "old",
-  "stt": "Pre-GHS format &mdash; replace",
-  "url": "https://justicebrothers.com/products/industrial/heavy-duty-chain-lube/",
-  "src": "Maker",
   "k": "chain lube aerosol petroleum hdcl",
-  "note": "Justice Brothers of Duarte CA. A modern 16-section GHS sheet exists, revised 20 Dec 2018. The copy on file is pre-GHS MSDS format, so it fails HazCom 2012 on format as well as age. Justice Brothers publishes no public SDS library &mdash; request it from them directly."
+  "url": "https://justicebrothers.com/products/industrial/heavy-duty-chain-lube/",
+  "src": "Maker"
  },
  {
   "n": "LESCO CarbonPRO-G / G Elite",
@@ -373,12 +312,9 @@ const SHEETS = [
   "sig": "Not classified",
   "rev": "12/21/2018",
   "pg": 145,
-  "st": "old",
-  "stt": "Superseded &mdash; 24 May 2019",
-  "url": "https://mirimichigreen.com/wp-content/uploads/2019/05/1630-2SDS.pdf",
-  "src": "Maker",
   "k": "biochar compost soil amendment",
-  "note": "Replace with the 24 May 2019 revision. Also confirm &ldquo;G Elite&rdquo; is a real SKU &mdash; no separate sheet exists for it anywhere."
+  "url": "https://mirimichigreen.com/wp-content/uploads/2019/05/1630-2SDS.pdf",
+  "src": "Maker"
  },
  {
   "n": "LESCO CrossCheck 0.069% Insecticide + Fertilizer",
@@ -387,12 +323,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "11/06/2020",
   "pg": 153,
-  "st": "chk",
-  "stt": "Current &mdash; but the filename lies",
-  "url": "https://www.davey.com/media/kqqpcjn1/0-0-7-w-069-crosscheck_sds.pdf",
-  "src": "Mirror",
   "k": "bifenthrin granular fertilizer 70506-123-10404",
-  "note": "Confirmed current: EPA 70506-123-10404, bifenthrin 0.069%. But it is stored as &ldquo;LESCO Crosscheck EZ Granular.pdf&rdquo;, which is a different registration entirely. Rename the file before someone grabs the wrong sheet."
+  "url": "https://www.davey.com/media/kqqpcjn1/0-0-7-w-069-crosscheck_sds.pdf",
+  "src": "Mirror"
  },
  {
   "n": "LESCO CrossCheck Plus Multi-Insecticide",
@@ -401,11 +334,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "02/13/2026",
   "pg": 159,
-  "st": "ok",
-  "stt": "Current",
+  "k": "bifenthrin pyrethroid 279-3206-10404",
   "url": "https://labelsds.com/images/user_uploads/Lesco%20Crosscheck%20Plus%20SDS%202-13-26.pdf",
-  "src": "Portal",
-  "k": "bifenthrin pyrethroid 279-3206-10404"
+  "src": "Portal"
  },
  {
   "n": "LESCO Dimension 0.27G Turf &amp; Ornamental",
@@ -414,11 +345,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "11/06/2015",
   "pg": 167,
-  "st": "ok",
-  "stt": "Current",
+  "k": "dithiopyr preemergent crabgrass 62719-429-10404",
   "url": "https://labelsds.com/images/user_uploads/Lesco%20Dimension%20.27G%20SDS%2011-6-15.pdf",
-  "src": "Portal",
-  "k": "dithiopyr preemergent crabgrass 62719-429-10404"
+  "src": "Portal"
  },
  {
   "n": "LESCO Momentum FX2 Herbicide",
@@ -427,11 +356,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "02/12/2015",
   "pg": 179,
-  "st": "ok",
-  "stt": "Current",
+  "k": "broadleaf herbicide 228-447-10404 fluroxypyr",
   "url": "https://labelsds.com/chemical-label-list",
-  "src": "Portal",
-  "k": "broadleaf herbicide 228-447-10404 fluroxypyr"
+  "src": "Portal"
  },
  {
   "n": "LESCO Prosecutor Pro Herbicide",
@@ -440,11 +367,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "08/06/2020",
   "pg": 186,
-  "st": "ok",
-  "stt": "Current",
+  "k": "glyphosate nonselective 524-536-10404",
   "url": "https://labelsds.com/images/user_uploads/Prosecutor%20Pro%20SDS%208-6-20.pdf",
-  "src": "Portal",
-  "k": "glyphosate nonselective 524-536-10404"
+  "src": "Portal"
  },
  {
   "n": "LESCO Quin-Way (Quintessential)",
@@ -453,12 +378,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "05/08/2024",
   "pg": 197,
-  "st": "chk",
-  "stt": "Check the jug",
-  "url": "https://www.albaugh.com/docs/unitedstateslibraries/productfiles/quintessential-safety-data-sheet-.pdf",
-  "src": "Maker",
   "k": "quinclorac quintessential 89442-57",
-  "note": "The binder holds the <i>Quintessential</i> sheet (EPA 89442-57). <i>LESCO Quin-Way 1.5L</i> is a separate registration (EPA 42750-224-10404). Match the EPA number on the jug."
+  "url": "https://www.albaugh.com/docs/unitedstateslibraries/productfiles/quintessential-safety-data-sheet-.pdf",
+  "src": "Maker"
  },
  {
   "n": "LESCO Recede Liquid Antifoam",
@@ -467,11 +389,9 @@ const SHEETS = [
   "sig": "Not classified",
   "rev": "08/07/2014",
   "pg": 206,
-  "st": "ok",
-  "stt": "Current",
+  "k": "antifoam defoamer tank mix 80314",
   "url": "https://labelsds.com/chemical-label-list",
-  "src": "Portal",
-  "k": "antifoam defoamer tank mix 80314"
+  "src": "Portal"
  },
  {
   "n": "LESCO Three-Way Ester II Herbicide",
@@ -480,11 +400,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "01/28/2015",
   "pg": 211,
-  "st": "ok",
-  "stt": "Current",
+  "k": "2,4-d mecoprop dicamba broadleaf 228-317-10404",
   "url": "https://labelsds.com/images/user_uploads/Lesco%203%20Way%20Ester%20SDS%201-28-15.pdf",
-  "src": "Portal",
-  "k": "2,4-d mecoprop dicamba broadleaf 228-317-10404"
+  "src": "Portal"
  },
  {
   "n": "Liquid Fence Deer &amp; Rabbit Repellent Concentrate2",
@@ -493,12 +411,9 @@ const SHEETS = [
   "sig": "See Section 2",
   "rev": "03/18/2015",
   "pg": 219,
-  "st": "old",
-  "stt": "Superseded &mdash; Nov 2021",
-  "url": "https://www.liquidfence.com/-/media/Project/SpectrumCommerce/LiquidFence/Files/SDS/LiquidFenceDeerRabbitRepellentConcentrate27204125B40SDSNov21.pdf",
-  "src": "Maker",
   "k": "putrescent egg garlic deer rabbit repellent",
-  "note": "Eleven years old. Two revisions have shipped since &mdash; Jan 2019 and Nov 2021."
+  "url": "https://www.liquidfence.com/-/media/Project/SpectrumCommerce/LiquidFence/Files/SDS/LiquidFenceDeerRabbitRepellentConcentrate27204125B40SDSNov21.pdf",
+  "src": "Maker"
  },
  {
   "n": "PEAK Green 50/50 Prediluted Antifreeze",
@@ -507,11 +422,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "01/01/2024",
   "pg": 225,
-  "st": "ok",
-  "stt": "Current",
+  "k": "coolant ethylene glycol radiator green",
   "url": "https://www.owi.com/retail/brands/peak-auto/antifreeze-coolant",
-  "src": "Maker",
-  "k": "coolant ethylene glycol radiator green"
+  "src": "Maker"
  },
  {
   "n": "PEAK Orange 50/50 Prediluted Antifreeze",
@@ -520,11 +433,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "04/20/2022",
   "pg": 234,
-  "st": "ok",
-  "stt": "Current",
+  "k": "coolant extended life oat radiator orange",
   "url": "https://www.owi.com/retail/brands/peak-auto/antifreeze-coolant",
-  "src": "Maker",
-  "k": "coolant extended life oat radiator orange"
+  "src": "Maker"
  },
  {
   "n": "PennMulch Seed Starter",
@@ -533,11 +444,9 @@ const SHEETS = [
   "sig": "None",
   "rev": "07/16/2026",
   "pg": 244,
-  "st": "ok",
-  "stt": "Current",
+  "k": "seeding mulch starter fertilizer pellet sku 2396109",
   "url": "http://www.businesscenter.lebsea.com/Pages/MSDSGenerator.aspx",
-  "src": "Maker",
-  "k": "seeding mulch starter fertilizer pellet sku 2396109"
+  "src": "Maker"
  },
  {
   "n": "Pour-N-Restore Oil Stain Remover",
@@ -546,12 +455,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "08/23/2023",
   "pg": 250,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://www.pour-n-restore.com/cdn/shop/files/SDS_PNR_Oil_Stain_Remover_2023v1.pdf",
-  "src": "Maker",
   "k": "concrete oil stain remover driveway",
-  "note": "Now published under the Pour-N-Restore name, not Edgewater Industries. Same content, same date &mdash; only the Section 1 supplier block changed."
+  "url": "https://www.pour-n-restore.com/cdn/shop/files/SDS_PNR_Oil_Stain_Remover_2023v1.pdf",
+  "src": "Maker"
  },
  {
   "n": "Power Service Diesel Fuel Supplement",
@@ -560,11 +466,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "01/04/2024",
   "pg": 257,
-  "st": "old",
-  "stt": "Superseded &mdash; 11 Aug 2025",
+  "k": "diesel additive cetane anti-gel winter",
   "url": "https://powerservice.com/wp-content/uploads/2025/08/Diesel-Fuel-SupplementCetane-Boost-SDS-081125.pdf",
-  "src": "Maker",
-  "k": "diesel additive cetane anti-gel winter"
+  "src": "Maker"
  },
  {
   "n": "Professional High Performance Enamel",
@@ -573,12 +477,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "06/15/2023",
   "pg": 270,
-  "st": "old",
-  "stt": "Superseded &mdash; look up your SKU",
-  "url": "https://www.rustoleum.com/Sds-Tds-Search",
-  "src": "Maker",
   "k": "spray paint enamel aerosol",
-  "note": "Rust-Oleum publishes a separate sheet for every colour SKU, and the line was reissued in late 2025 (Flat Black 7578838 is dated 21 Nov 2025). Read the SKU off the can and pull that sheet &mdash; there is no single correct date for the line."
+  "url": "https://www.rustoleum.com/Sds-Tds-Search",
+  "src": "Maker"
  },
  {
   "n": "QD Electronic Cleaner, 11 oz",
@@ -587,12 +488,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "08/18/2023",
   "pg": 277,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://www.crcindustries.com/media/msdsen/default/msds_en-1003719.pdf",
-  "src": "Maker",
   "k": "contact cleaner electronics quick dry 05103",
-  "note": "The 4.5 oz can (05101) is a separate sheet. If the shop stocks both sizes it needs both."
+  "url": "https://www.crcindustries.com/media/msdsen/default/msds_en-1003719.pdf",
+  "src": "Maker"
  },
  {
   "n": "Sea Foam Motor Treatment",
@@ -601,11 +499,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "10/16/2019",
   "pg": 286,
-  "st": "ok",
-  "stt": "Current",
+  "k": "fuel additive engine treatment",
   "url": "https://seafoamworks.com/sds/",
-  "src": "Maker",
-  "k": "fuel additive engine treatment"
+  "src": "Maker"
  },
  {
   "n": "SPLASH -75&deg;F RV &amp; Marine Antifreeze",
@@ -614,12 +510,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "09/08/2022",
   "pg": 293,
-  "st": "chk",
-  "stt": "Unverified",
-  "url": "https://www.splashwash.com/sds-sheets",
-  "src": "Maker",
   "k": "propylene glycol antifreeze winterize 619533-35",
-  "note": "splashwash.com blocks automated checks &mdash; verify by hand. Part 619533-35 and 619535-35 are different formulations with different sheets."
+  "url": "https://www.splashwash.com/sds-sheets",
+  "src": "Maker"
  },
  {
   "n": "StaBil Fuel Stabilizer – Storage",
@@ -628,12 +521,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "02/04/2020",
   "pg": 302,
-  "st": "old",
-  "stt": "Superseded &mdash; 4 Feb 2025",
-  "url": "https://www.goldeagle.com/sds-search-instructions/",
-  "src": "Maker",
   "k": "fuel stabilizer storage gasoline",
-  "note": "Two revisions behind &mdash; there was an interim 1 Mar 2024 as well. The <i>issue</i> date stays 23 Jan 2019 on every version, which is why a stale copy looks fine at a glance. Check the revision line."
+  "url": "https://www.goldeagle.com/sds-search-instructions/",
+  "src": "Maker"
  },
  {
   "n": "SuperClean Degreaser",
@@ -642,12 +532,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "03/08/2016",
   "pg": 313,
-  "st": "old",
-  "stt": "Superseded &mdash; 4 Oct 2021",
-  "url": "https://superclean.com/wp-content/uploads/2022/04/SuperClean-Degreaser-Foaming-Degreaser.pdf",
-  "src": "Maker",
   "k": "degreaser cleaner butyl purple",
-  "note": "One sheet covers both the liquid and the foaming degreaser. The 2016 copy predates a hazmat shipping-classification update. SuperClean's own product page still links an older file than the current one."
+  "url": "https://superclean.com/wp-content/uploads/2022/04/SuperClean-Degreaser-Foaming-Degreaser.pdf",
+  "src": "Maker"
  },
  {
   "n": "Syngenta Fusilade II Turf &amp; Ornamental",
@@ -656,11 +543,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "05/15/2023",
   "pg": 322,
-  "st": "ok",
-  "stt": "Current",
+  "k": "fluazifop grass herbicide selective",
   "url": "https://assets.syngenta-us.com/pdf/msds/fusilade%20II%20tno.pdf",
-  "src": "Maker",
-  "k": "fluazifop grass herbicide selective"
+  "src": "Maker"
  },
  {
   "n": "Treflan 5G Biodac Herbicide",
@@ -669,12 +554,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "11/13/2014",
   "pg": 338,
-  "st": "old",
-  "stt": "Stale reprint",
-  "url": "http://www.businesscenter.lebsea.com/Pages/MSDSGenerator.aspx",
-  "src": "Maker",
   "k": "trifluralin preemergent granular 961-405 carcinogen sku 2440436",
-  "note": "Twelve-year-old printout and the EPA label was amended 15 Sep 2022. Re-pull from the generator (SKU 2440436) &mdash; it costs nothing."
+  "url": "http://www.businesscenter.lebsea.com/Pages/MSDSGenerator.aspx",
+  "src": "Maker"
  },
  {
   "n": "Valvoline Advanced Full Synthetic SAE 5W-20",
@@ -683,11 +565,9 @@ const SHEETS = [
   "sig": "Not classified",
   "rev": "02/23/2023",
   "pg": 349,
-  "st": "ok",
-  "stt": "Current",
+  "k": "motor oil engine lubricant 883691",
   "url": "https://petroleumservicecompany.com/content/pdfs/Valvoline_Advanced_Full_Syn_5W-20_SDS.pdf",
-  "src": "Mirror",
-  "k": "motor oil engine lubricant 883691"
+  "src": "Mirror"
  },
  {
   "n": "Valvoline Extra Strength Starting Fluid",
@@ -696,12 +576,9 @@ const SHEETS = [
   "sig": "Danger",
   "rev": "07/31/2015",
   "pg": 363,
-  "st": "old",
-  "stt": "Superseded &mdash; 16 Oct 2019",
-  "url": "https://media.napaonline.com/is/content/GenuinePartsCompany/205170996pdf",
-  "src": "Maker",
   "k": "ether starting fluid aerosol",
-  "note": "Eleven years stale, and Section 1 names a company that no longer makes it &mdash; Valvoline car-care chemicals are now made and published by Niteo Products. This is an ether aerosol; the emergency contact on the sheet needs to be the right one."
+  "url": "https://media.napaonline.com/is/content/GenuinePartsCompany/205170996pdf",
+  "src": "Maker"
  },
  {
   "n": "Valvoline Synthetic DOT 3&amp;4 Brake Fluid",
@@ -710,12 +587,9 @@ const SHEETS = [
   "sig": "Warning",
   "rev": "04/17/2019",
   "pg": 383,
-  "st": "ok",
-  "stt": "Current",
-  "url": "https://labelsds.com/images/user_uploads/VAL%20DOT%203&4%20BRAKE%20FLD%20SDS%204-17-19.pdf",
-  "src": "Portal",
   "k": "brake fluid dot 3 dot 4 glycol 600000001627",
-  "note": "Don't confuse this with plain &ldquo;Valvoline DOT 3 &amp; 4 Brake Fluid&rdquo; (Niteo 601457/601458) &mdash; different product, different sheet."
+  "url": "https://labelsds.com/images/user_uploads/VAL%20DOT%203&4%20BRAKE%20FLD%20SDS%204-17-19.pdf",
+  "src": "Portal"
  },
  {
   "n": "LESCO CrossCheck EZ Granular Insecticide (Verge)",
@@ -724,13 +598,9 @@ const SHEETS = [
   "sig": "See sheet",
   "rev": "04/10/2015",
   "pg": null,
-  "st": "gone",
-  "stt": "Missing from binder",
-  "miss": 1,
-  "url": "https://labelsds.com/images/user_uploads/Crosscheck%20EZ%20SDS%204-10-15.pdf",
-  "src": "Portal",
   "k": "bifenthrin verge granule 279-3168-10404 siteone 11008349",
-  "note": "Verge is the granule technology inside CrossCheck EZ Granular &mdash; one product, EPA 279-3168-10404, bifenthrin 0.2%, SiteOne item 11008349. It is <i>not</i> the same as the 0.069% Plus Fertilizer sheet filed above (EPA 70506-123-10404, one-third the active ingredient). Both products need their own sheet; this one has none."
+  "url": "https://labelsds.com/images/user_uploads/Crosscheck%20EZ%20SDS%204-10-15.pdf",
+  "src": "Portal"
  }
 ];
 
@@ -745,24 +615,22 @@ function strip(h){ const d = document.createElement("div"); d.innerHTML = h; ret
 function render(){
   const q = qEl.value.trim().toLowerCase();
   const hits = SHEETS.filter(s => {
-    if (filter === "att" && s.st === "ok") return false;
     if (filter === "shop" && s.c !== "shop") return false;
     if (filter === "turf" && s.c !== "turf") return false;
     if (filter === "Danger" && s.sig !== "Danger") return false;
     if (!q) return true;
-    return (strip(s.n) + " " + s.m + " " + s.k + " " + strip(s.stt)).toLowerCase().includes(q);
+    return (strip(s.n) + " " + s.m + " " + s.k).toLowerCase().includes(q);
   });
   countEl.textContent = hits.length === SHEETS.length ? SHEETS.length + " products" : hits.length + " of " + SHEETS.length + " products";
   if (!hits.length){ listEl.innerHTML = '<p class="empty">Nothing matches that. Try the brand, the active ingredient, or what it does.</p>'; return; }
   listEl.innerHTML = hits.map(s => {
     const pg = s.pg ? '<span class="pg">Binder p.' + s.pg + '</span>' : '<span class="pg">Not in binder</span>';
-    const note = s.note ? '<p class="note">' + s.note + '</p>' : '';
     const link = s.url ? '<div class="links"><a href="' + s.url + '" target="_blank" rel="noopener">Open current sheet</a><span class="src">' + s.src + '</span></div>' : '';
-    return '<article class="row" data-sig="' + s.sig + '"' + (s.miss ? ' data-miss="1"' : '') + '>'
+    return '<article class="row" data-sig="' + s.sig + '"' + '>'
       + '<div class="stripe" aria-hidden="true"></div><div class="body">'
       + '<h3 class="name">' + s.n + '</h3><p class="maker">' + s.m + '</p>'
       + '<div class="meta"><span class="sig">' + s.sig + '</span><span>Rev ' + s.rev + '</span>' + pg
-      + '<span class="status ' + s.st + '">' + s.stt + '</span></div>' + note + link + '</div></article>';
+      + '</div>' + link + '</div></article>';
   }).join("");
 }
 
